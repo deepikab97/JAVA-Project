@@ -1,0 +1,6 @@
+projectKey=ALM_JAVA_Project:master
+serverUrl=http://localhost:9000
+serverVersion=8.9.7.52159
+dashboardUrl=http://localhost:9000/dashboard?id=ALM_JAVA_Project%3Amaster
+ceTaskId=AYWiOcTrzkzXwEI6IoA-
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYWiOcTrzkzXwEI6IoA-
