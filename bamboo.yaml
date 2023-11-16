@@ -1,0 +1,10 @@
+version: 2
+plan:
+  project-key: MAV
+  key: TEC
+  name: Technical roadmap
+
+stages:
+  - Stage 1:
+      jobs:
+        - Default Job
