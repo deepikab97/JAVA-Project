@@ -1,10 +1,66 @@
+---
 version: 2
 plan:
   project-key: MAV
   key: TEC
-  name: Technical roadmap
-
+  name: TechnicalRoadmap
+  description: For technical roadmap
 stages:
-  - Stage 1:
-      jobs:
-        - Default Job
+- Default Stage:
+    manual: false
+    final: false
+    jobs:
+    - Default Job
+Default Job:
+  key: JOB1
+  tasks:
+  - checkout:
+      force-clean-build: 'false'
+      description: Checkout Default Repository
+  - maven:
+      executable: Maven-home
+      jdk: JDK 1.8
+      goal: package
+      tests: 'true'
+      description: Continuous build
+  artifacts:
+  - name: Maven project jar
+    location: /home/ubuntu/bamboo/bamboo-home/local-working-dir/MAV-TEC-JOB1/target/
+    pattern: DeployProject-0.0.1-SNAPSHOT.jar
+    shared: true
+    required: true
+  artifact-subscriptions: []
+repositories:
+- Maven-Project:
+    scope: global
+triggers:
+- polling:
+    period: '180'
+branches:
+  create: manually
+  delete: never
+  link-to-jira: true
+notifications: []
+labels: []
+dependencies:
+  require-all-stages-passing: false
+  enabled-for-branches: true
+  block-strategy: none
+  plans: []
+other:
+  concurrent-build-plugin: system-default
+---
+version: 2
+plan:
+  key: MAV-TEC
+plan-permissions:
+- users:
+  - admin
+  permissions:
+  - view
+  - edit
+  - build
+  - clone
+  - admin
+  - view_configuration
+...
