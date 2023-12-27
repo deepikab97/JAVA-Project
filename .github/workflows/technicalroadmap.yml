@@ -1,7 +1,9 @@
 name: maven-project/technicalroadmap
 on:
-#   # The shortest interval you can run scheduled workflows is once every 5 minutes.
-#   period: '180'
+  # The following schedule was transformed and may behave differently than in Bamboo.
+  # In GitHub Actions, this workflow will run on this schedule regardless of any changes whereas in Bamboo a job will only run if there are changes.
+  schedule:
+  - cron: 45 15 * * *
 jobs:
   Default-Stage-Default-Job:
     runs-on: ubuntu-latest
